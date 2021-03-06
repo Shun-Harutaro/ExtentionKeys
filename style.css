@@ -1,14 +1,14 @@
-#Keypad{
-  width: 40vw;
+#keypad{
+  width: 500px;
   border: #DDD solid 2px;
   background: #FFF;
   border-radius: 5px;
   padding: 3vw;
-  box-shadow: 3px 3px 8px rgba(0,0,0,0.25);
   box-sizing: border-box;
   position: fixed;
   top: 3vw;
   left: 3vw;
+}
  
 #result{
   display: block;
@@ -52,7 +52,6 @@
 #btnAll li:nth-child(3n){
   margin-right: 0;
 }
-#btnAll li.other{
+btnAll li.other{
   background: #ea7433;
-  margin-right: 0;
 }
