@@ -14,7 +14,19 @@ chrome.extension.onRequest.addListener(
     }
   }
 )
-function sendVal(nums,name) {
-  chrome.extension.sendRequest({"action":"input","nums":nums,"name":name});
-  console.log(nums,name);
+async function sendVal(nums,name) {
+  const tabId = await getTab();
+  chrome.tabs.sendMessage(tabId,{"action":"input","nums":nums,"name":name});
+  console.log(nums,name,tabId);
 }
+
+function getTab() {
+  return new Promise(resolve => {
+    let tabId;
+    chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, tabs => {
+      tabId = tabs[0].id;
+      console.log(tabId);
+      resolve(tabId);
+    });
+  })
+};

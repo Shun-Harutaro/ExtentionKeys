@@ -12,7 +12,15 @@ chrome.runtime.onMessage.addListener((req, sender, res) => {
         const nums = req.nums;
         const name = req.name;
         console.log(nums,name);
+        inputForm(nums,name);
         break;
     }
   }
 )
+
+const inputForm = (nums,name) => {
+  const elements = document.getElementsByName(name);
+  const len = elements.length;
+  const element = elements[0];
+  element.value=nums;
+}
